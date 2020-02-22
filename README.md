@@ -24,6 +24,6 @@ ping_interval = 10800
 traceroute_interval = 10800
 tag_list = ["test-code-esib"] 
 ```
-
+You can find in ``measurements`` folder the results of the creation request including the measurement id.
 
  
