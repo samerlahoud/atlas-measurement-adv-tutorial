@@ -1,0 +1,38 @@
+{
+    "akamai": [
+        {
+            "host": "www.example.com",
+            "is_success": true,
+            "measurement_id": [
+                24025876,
+                24025877
+            ]
+        },
+        {
+            "host": "www.akamai.com",
+            "is_success": true,
+            "measurement_id": [
+                24025878,
+                24025879
+            ]
+        }
+    ],
+    "fastly": [
+        {
+            "host": "www.github.com",
+            "is_success": true,
+            "measurement_id": [
+                24025880,
+                24025881
+            ]
+        },
+        {
+            "host": "www.fastly.com",
+            "is_success": true,
+            "measurement_id": [
+                24025883,
+                24025884
+            ]
+        }
+    ]
+}
