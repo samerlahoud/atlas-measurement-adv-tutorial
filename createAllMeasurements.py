@@ -9,8 +9,13 @@ from ripe.atlas.cousteau import (
     AtlasCreateRequest
 )
 
-# Put your API key here from atlas.ripe.net
-ATLAS_API_KEY = ""
+# Modify the following parameters
+ATLAS_API_KEY = " "
+max_nb_servers = 3
+nb_requested_probes = 3
+ping_interval = 10800
+traceroute_interval = 10800
+tag_list = ["test-code-esib"] 
 
 with open('destinationNetworks.json', 'r') as f:
     networks = json.load(f)
@@ -22,24 +27,24 @@ for source_country, source_country_code in countries.items():
     measurements = dict()
     for destination_network, destination_servers in networks.items():
         measurements[destination_network] = list()
-        # Select randomly 3 servers from each network
+        # Select randomly max_nb_servers servers from each network
         shuffle(destination_servers)
         for index, server in enumerate(destination_servers):
-            if index == 3:
+            if index == max_nb_servers:
                 break
             ping = Ping(af=4, target=server['host'],
                         description="From {} to {}".format(source_country_code, destination_network),
-                        interval=10800, tags=["test_code_esib"])
+                        interval=ping_interval, tags=tag_list)
             traceroute = Traceroute(
                 af=4,
                 target=server['host'],
                 description="From {} to {}".format(source_country_code, destination_network),
                 protocol="ICMP",
-                interval=10800,
-                tags=["test_code_esib"]
+                interval=traceroute_interval,
+                tags=tag_list
             )
             # Request 3 probes
-            source = AtlasSource(type="country", value=source_country_code, requested=3)
+            source = AtlasSource(type="country", value=source_country_code, requested=nb_requested_probes)
             atlas_request = AtlasCreateRequest(
                 start_time=datetime.utcnow() + timedelta(seconds=60),
                 key=ATLAS_API_KEY,

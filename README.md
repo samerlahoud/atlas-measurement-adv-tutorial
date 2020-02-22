@@ -12,9 +12,18 @@ This is a simplified version of the original project provided in https://github.
 
 ## How to Use this Code
 
-1. Identify the list of countries in ``countries.json``. The source of the measurements will be probes available in these countries.
-2. 
-
+1. Modify the list of countries in ``countries.json``. The source of the measurements will be probes available in these countries.
+2. Modify the list of destination networks in ``destionationNetworks.json``. The destination of the measurements will be the hosts in each destination network.
+3. Create measurements using ``python createAllMeasurements.py``. You can modify the following parameters:
+  
+```
+ATLAS_API_KEY = " "
+max_nb_servers = 3
+nb_requested_probes = 3
+ping_interval = 10800
+traceroute_interval = 10800
+tag_list = ["test-code-esib"] 
+```
 
 
  
