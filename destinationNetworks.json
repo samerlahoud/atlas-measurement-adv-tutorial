@@ -1,0 +1,18 @@
+{
+    "akamai": [
+        {
+            "host": "www.example.com"
+        },
+        {
+            "host": "www.akamai.com"
+        }
+    ],
+    "fastly": [
+        {
+            "host": "www.fastly.com"
+        },
+        {
+            "host": "www.github.com"
+        }
+    ]
+}
