@@ -37,7 +37,8 @@ for filepath in glob.iglob('measurements/*.json'):
                 )
                 source = AtlasSource(type="country", value=source_country_code, requested=3)
                 atlas_request = AtlasCreateRequest(
-                    start_time=datetime.utcnow(),
+                    start_time=datetime.utcnow() + timedelta(seconds=60),
+                    stop_time=datetime.utcnow() + timedelta(days=2),
                     key=ATLAS_API_KEY,
                     measurements=[ping, traceroute],
                     sources=[source],

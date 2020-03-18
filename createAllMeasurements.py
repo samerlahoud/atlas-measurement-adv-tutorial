@@ -47,6 +47,7 @@ for source_country, source_country_code in countries.items():
             source = AtlasSource(type="country", value=source_country_code, requested=nb_requested_probes)
             atlas_request = AtlasCreateRequest(
                 start_time=datetime.utcnow() + timedelta(seconds=60),
+                stop_time=datetime.utcnow() + timedelta(days=2),
                 key=ATLAS_API_KEY,
                 measurements=[ping, traceroute],
                 sources=[source],
